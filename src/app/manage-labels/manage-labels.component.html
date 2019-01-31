@@ -1,0 +1,9 @@
+<label for="work_label">Label</label>
+<input type="text" id="work_label" [(ngModel)]="newLabel">
+<button (click)="createNewLabel()">Dodaj</button>
+
+<div *ngIf="(labels | async)?.length!=0">
+  <ul>
+    <li *ngFor="let label of labels | async">{{ label.id}} -- {{ label.name }} <span (click)="deleteLabel(label.id)">delete</span></li>
+  </ul>
+</div>
